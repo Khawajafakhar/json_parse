@@ -1,0 +1,31 @@
+import './images_model.dart';
+
+class Data {
+  final int id;
+  final String firstName;
+  final String lastName;
+  final String avatar;
+  final List<Images> images;
+
+  Data({
+    required this.id,
+    required this.firstName,
+    required this.lastName,
+    required this.avatar,
+    required this.images,
+  });
+
+  factory Data.fromJson(Map<String,dynamic> jsonData) {
+    var jsonImages = jsonData["images"] as List<dynamic>;
+    List<Images> imagesList =
+        jsonImages.map((i) => Images.fromJson(i)).toList();
+
+    return Data(
+      id: jsonData["id"],
+      firstName: jsonData["first_name"],
+      lastName: jsonData["last_name"],
+      avatar: jsonData["avatar"],
+      images: imagesList,
+    );
+  }
+}
