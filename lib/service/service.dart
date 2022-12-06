@@ -1,5 +1,6 @@
 import 'dart:async' show Future;
 import 'package:flutter/services.dart' show rootBundle;
+import 'package:hive_flutter/adapters.dart';
 import 'dart:convert';
 import '../models/book_model.dart';
 
@@ -13,7 +14,11 @@ class Service {
       String jsonString = await _loadJsonBook();
       final jsonResponse = json.decode(jsonString);
       Book book = Book.fromjson(jsonResponse);
-      print(book.data!.dataList[0].images[0].id);
-      print(book.auther!.firstname);
+       var bookBox =Hive.box<Book>('bookBox');
+      bookBox.put('book1',book);
+
+      var book1=bookBox.get('book1');
+      // print(book.data!.dataList[0].images[0].id);
+       print(book1!.auther!.firstname);
     }
 }

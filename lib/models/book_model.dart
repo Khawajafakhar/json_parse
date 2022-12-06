@@ -1,13 +1,23 @@
+import 'package:hive/hive.dart';
+
 import './author_model.dart';
 import './data_list_model.dart';
-import './data_model.dart';
 
+part '../adaptors/book_model.g.dart';
+
+@HiveType(typeId: 0)
 class Book {
+  @HiveField(0)
   final int page;
+  @HiveField(1)
   final int perPage;
+  @HiveField(2)
   final int total;
+  @HiveField(3)
   final int totalPages;
+  @HiveField(4)
   final Auther? auther;
+  @HiveField(5)
   final DataList? data;
 
   Book({
