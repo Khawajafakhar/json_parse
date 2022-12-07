@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
+import '../consts/app_texts.dart';
 import '../service/service.dart';
 import '../models/book_model.dart';
 
@@ -31,5 +32,27 @@ class DataProvider with ChangeNotifier {
     bookBox.delete('book1');
     setBook(null);
     notifyListeners();
+  }
+
+  Future<bool?> alertDialogueValue(BuildContext ctx) async {
+    return await showDialog<bool>(
+      context: ctx,
+      builder: (context) {
+        return AlertDialog(
+          title: const Text(sureText),
+          content: const Text(exitText),
+          actions: [
+            ElevatedButton(
+              onPressed: () => Navigator.of(context).pop(false),
+              child: const Text(noText),
+            ),
+            ElevatedButton(
+              onPressed: () => Navigator.of(context).pop(true),
+              child: const Text(yesText),
+            )
+          ],
+        );
+      },
+    );
   }
 }
