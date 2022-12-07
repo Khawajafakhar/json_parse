@@ -1,5 +1,5 @@
 import 'package:hive/hive.dart';
-part '../adaptors/author_model.g.dart';
+part 'adaptors/author_model.g.dart';
 
 @HiveType(typeId: 1)
 class Auther {

@@ -1,47 +1,44 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of '../models/book_model.dart';
+part of '../data_model.dart';
 
 // **************************************************************************
 // TypeAdapterGenerator
 // **************************************************************************
 
-class BookAdapter extends TypeAdapter<Book> {
+class DataAdapter extends TypeAdapter<Data> {
   @override
-  final int typeId = 0;
+  final int typeId = 3;
 
   @override
-  Book read(BinaryReader reader) {
+  Data read(BinaryReader reader) {
     final numOfFields = reader.readByte();
     final fields = <int, dynamic>{
       for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
-    return Book(
-      page: fields[0] as int,
-      perPage: fields[1] as int,
-      total: fields[2] as int,
-      totalPages: fields[3] as int,
-      auther: fields[4] as Auther?,
-      data: fields[5] as DataList?,
+    return Data(
+      id: fields[0] as int,
+      firstName: fields[1] as String,
+      lastName: fields[2] as String,
+      avatar: fields[3] as String,
+      images: (fields[4] as List).cast<Images>(),
     );
   }
 
   @override
-  void write(BinaryWriter writer, Book obj) {
+  void write(BinaryWriter writer, Data obj) {
     writer
-      ..writeByte(6)
-      ..writeByte(0)
-      ..write(obj.page)
-      ..writeByte(1)
-      ..write(obj.perPage)
-      ..writeByte(2)
-      ..write(obj.total)
-      ..writeByte(3)
-      ..write(obj.totalPages)
-      ..writeByte(4)
-      ..write(obj.auther)
       ..writeByte(5)
-      ..write(obj.data);
+      ..writeByte(0)
+      ..write(obj.id)
+      ..writeByte(1)
+      ..write(obj.firstName)
+      ..writeByte(2)
+      ..write(obj.lastName)
+      ..writeByte(3)
+      ..write(obj.avatar)
+      ..writeByte(4)
+      ..write(obj.images);
   }
 
   @override
@@ -50,7 +47,7 @@ class BookAdapter extends TypeAdapter<Book> {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is BookAdapter &&
+      other is DataAdapter &&
           runtimeType == other.runtimeType &&
           typeId == other.typeId;
 }

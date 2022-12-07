@@ -1,7 +1,7 @@
 import 'package:hive/hive.dart';
 
 import './data_model.dart';
-part '../adaptors/data_list_model.g.dart';
+part 'adaptors/data_list_model.g.dart';
 
 @HiveType(typeId: 2)
 class DataList {

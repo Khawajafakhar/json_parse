@@ -1,7 +1,7 @@
 import 'package:hive/hive.dart';
 
 import './images_model.dart';
-part '../adaptors/data_model.g.dart';
+part 'adaptors/data_model.g.dart';
 
 @HiveType(typeId: 3)
 class Data {

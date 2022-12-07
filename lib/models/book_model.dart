@@ -1,9 +1,7 @@
 import 'package:hive/hive.dart';
-
 import './author_model.dart';
 import './data_list_model.dart';
-
-part '../adaptors/book_model.g.dart';
+part 'adaptors/book_model.g.dart';
 
 @HiveType(typeId: 0)
 class Book {
